@@ -22,6 +22,8 @@ from login_window import LoginWindow
 from registration_window import RegistrationWindow
 # import the MainMenu class, used for creating main menu window
 from main_menu import MainMenu
+# import the oggedUserWindow class, used for creating logged user window
+from logged_user_window import LoggedUserWindow
 
 # define the MyApp class, inheriting from App, as the main application class
 class MyApp(App):
@@ -35,6 +37,7 @@ class MyApp(App):
         self.screen_manager.add_widget(MainMenu(name='menu'))
         self.screen_manager.add_widget(LoginWindow(name='login'))
         self.screen_manager.add_widget(RegistrationWindow(name='registration'))
+        self.screen_manager.add_widget(LoggedUserWindow(name='logged_user'))
         
         # return the screen manager to be used as the root widget
         return self.screen_manager
