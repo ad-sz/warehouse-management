@@ -1,3 +1,3 @@
 id;name;surname;password
-0001;jan;kowalski;Kowalski
-0002;mariusz;nowak;Nowak
+0;jan;kowalski;Kowalski
+1;mariusz;nowak;Nowak

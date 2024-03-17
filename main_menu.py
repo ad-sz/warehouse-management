@@ -1,4 +1,4 @@
-# # import the Config class, necessary for configu a Kivy windws
+# # import the Config class, necessary for configure a Kivy windws
 # from kivy.config import Config
 # # create a configuration for fulfill entire screen in the computer 
 # Config.set('graphics', 'fullscreen', 'auto')
