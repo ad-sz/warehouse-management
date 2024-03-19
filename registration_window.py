@@ -91,10 +91,10 @@ class RegistrationWindow(Screen):
             users_new_records_csv.writerow(self.registration_user_data)
 
         # use method for clear TextInput fields
-        self.cler_text_inputs()
+        self.clear_text_inputs()
 
     # define a method to clear TextInput and variables after handle the Registration button press
-    def cler_text_inputs(self):
+    def clear_text_inputs(self):
         self.user_name.text = ''
         self.user_surname.text = ''
         self.password.text = ''

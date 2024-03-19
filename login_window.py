@@ -38,6 +38,7 @@ class LoginWindow(Screen):
         
         # create a Login button and add it to the layout
         login_button = Button(text='Login', font_size='20sp')
+        login_button.bind(on_press=self.go_logged_user)
         layout.add_widget(login_button)
         
         # create a Back button, bind its on_press event to the back_to_menu method, and add it to the layout
@@ -51,3 +52,7 @@ class LoginWindow(Screen):
     # define a method to handle the Back button press, navigating back to the main menu
     def back_to_menu(self, instance):
         self.manager.current = 'menu'
+
+    # define a method to handle the Login button press, navigating to the logged user
+    def go_logged_user(self, instance):
+        self.manager.current = 'logged_user'

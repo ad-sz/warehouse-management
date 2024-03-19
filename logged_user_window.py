@@ -41,13 +41,15 @@ class LoggedUserWindow(Screen):
         layout.add_widget(search_button)
         
         # create a Logout button, bind its on_press event to the back_to_menu method, and add it to the layout
-        back_button = Button(text='Logout', font_size='20sp')
-        back_button.bind(on_press=self.back_to_menu)
-        layout.add_widget(back_button)
+        logout_button = Button(text='Logout', font_size='20sp')
+        logout_button.bind(on_press=self.back_to_menu)
+        layout.add_widget(logout_button)
         
         # add the layout to the screen
         self.add_widget(layout)
     
     # define a method to handle the Logout button press, navigating back to the main menu
     def back_to_menu(self, instance):
+        self.item_name.text = ''
+        self.item_number.text = ''
         self.manager.current = 'menu'

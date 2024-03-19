@@ -1,3 +1,5 @@
 id;name;surname;password
 0;jan;kowalski;Kowalski
 1;mariusz;nowak;Nowak
+2;;;
+3;aaa;aaa;aaaa
