@@ -15,6 +15,10 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 # import ScreenManager and Screen classes for managing multiple screens/windows
 from kivy.uix.screenmanager import ScreenManager, Screen
+# import csv for managing csv files
+import csv
+# import USERS_CSV_FILEPATH from global variables
+from global_variables import USERS_CSV_FILEPATH
 
 # define the LoginWindow class, inheriting from Screen, for the login interface
 class LoginWindow(Screen):
@@ -53,6 +57,29 @@ class LoginWindow(Screen):
     def back_to_menu(self, instance):
         self.manager.current = 'menu'
 
-    # define a method to handle the Login button press, navigating to the logged user
+    # define a method to clear TextInput after handle the Login button press
+    def clear_text_inputs(self):
+        self.username.text = ''
+        self.password.text = ''
+
+    # define a method to handle the Login button press, navigating to the logged user screen after checking username and password
     def go_logged_user(self, instance):
-        self.manager.current = 'logged_user'
+        # variable storage information if username and password is correct
+        correct_username_password = False
+        # open csv file in read mode (mode='r') to check username and password correctnes
+        with open(USERS_CSV_FILEPATH, mode='r', newline='') as csv_checking_user:
+        # create a csv reader specifying the delimiter as ';' (delimiter=';')
+            reader = csv.reader(csv_checking_user, delimiter=';')
+            # iterate over each row in the csv file
+            for row in reader:
+                # check if the username and password is correct
+                if row[1] == self.username.text and row[3] == self.password.text:
+                    correct_username_password = True
+                    # use method for clear TextInput fields
+                    self.clear_text_inputs()
+                    # navigating to the logged user screen
+                    self.manager.current = 'logged_user'
+                else:
+                    continue
+            if not correct_username_password:
+                print("incorrect password or username")

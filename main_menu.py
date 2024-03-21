@@ -37,9 +37,9 @@ class MainMenu(Screen):
         # add the layout to the screen
         self.add_widget(layout)
 
-    # define methods to handle button presses, switching to the login or registration screens
+    # define method to handle button presses, navigating to the login screen
     def switch_to_login(self, instance):
         self.manager.current = 'login'
-
+    # define method to handle button presses, navigating to the registration screen
     def switch_to_registration(self, instance):
         self.manager.current = 'registration'

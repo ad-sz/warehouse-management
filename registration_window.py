@@ -17,8 +17,8 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 # import csv for managing csv files
 import csv
-
-users_csv_filepath = 'D:/python_data/projekt/warehouse_management/warehouse-management/users.csv'
+# import USERS_CSV_FILEPATH from global variables
+from global_variables import USERS_CSV_FILEPATH
 
 # define the RegistrationWindow class, inheriting from Screen, for the registration interface
 class RegistrationWindow(Screen):
@@ -68,7 +68,7 @@ class RegistrationWindow(Screen):
         # initialize last user id as None
         self.last_id_user = None
         # open csv file in read mode (mode='r') to find last user id
-        with open(users_csv_filepath, mode='r', newline='') as csv_define_id:
+        with open(USERS_CSV_FILEPATH, mode='r', newline='') as csv_define_id:
             # create a csv reader specifying the delimiter as ';' (delimiter=';')
             reader = csv.reader(csv_define_id, delimiter=';')
             # iterate over each row in the csv file
@@ -84,7 +84,7 @@ class RegistrationWindow(Screen):
         self.registration_user_data = [self.new_id_user, self.user_name.text, self.user_surname.text, self.password.text]
 
         # open the csv file in append mode (mode='a') to add the new user data
-        with open(users_csv_filepath, mode='a', newline='') as users_csv:
+        with open(USERS_CSV_FILEPATH, mode='a', newline='') as users_csv:
             # create a csv writer specifying the delimiter as ';'
             users_new_records_csv = csv.writer(users_csv, delimiter=';')
             # write the new user record to the csv file

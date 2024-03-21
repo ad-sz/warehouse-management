@@ -50,6 +50,8 @@ class LoggedUserWindow(Screen):
     
     # define a method to handle the Logout button press, navigating back to the main menu
     def back_to_menu(self, instance):
+        # clear TextInput for item name and item number
         self.item_name.text = ''
         self.item_number.text = ''
+        # navigating back to the main menu
         self.manager.current = 'menu'
