@@ -15,8 +15,12 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 # import ScreenManager and Screen classes for managing multiple screens/windows
 from kivy.uix.screenmanager import ScreenManager, Screen
+# import the Popup class, used for creating popup windows
+from kivy.uix.popup import Popup
 # import csv for managing csv files
 import csv
+# import show_popup_window from popup_window for create popup window
+from popup_window import show_popup_window
 # import USERS_CSV_FILEPATH from global variables
 from global_variables import USERS_CSV_FILEPATH
 
@@ -28,7 +32,7 @@ class LoginWindow(Screen):
         # create a vertical BoxLayout for the login interface
         layout = BoxLayout(orientation='vertical')
         
-        # add a label for the username input field.
+        # add a label for the username input field
         layout.add_widget(Label(text='Username:'))
         # create and add a single-line TextInput for username input
         self.username = TextInput(multiline=False)
@@ -81,5 +85,6 @@ class LoginWindow(Screen):
                     self.manager.current = 'logged_user'
                 else:
                     continue
+            # create 
             if not correct_username_password:
-                print("incorrect password or username")
+                show_popup_window('Error', 'Incorrect username or password')

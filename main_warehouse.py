@@ -29,7 +29,7 @@ from logged_user_window import LoggedUserWindow
 class MyApp(App):
     def build(self):
         # set the main window title
-        self.title = 'Warehouse_management'
+        self.title = 'Warehouse management'
         # create a ScreenManager for managing multiple screens
         self.screen_manager = ScreenManager()
         
